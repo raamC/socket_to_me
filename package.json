@@ -1,0 +1,22 @@
+{
+  "name": "socket_to_me",
+  "version": "1.0.0",
+  "description": "Basic web chat powered by socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raamC/socket_to_me.git"
+  },
+  "author": "Raam Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raamC/socket_to_me/issues"
+  },
+  "homepage": "https://github.com/raamC/socket_to_me#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
