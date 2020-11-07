@@ -7,6 +7,13 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    console.log('user connected');
+    socket.broadcast.emit("newUser", "A new user joined")
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+        io.emit('disconnect', 'A user left');
+    });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
         io.emit('chat message', msg);
