@@ -6,9 +6,15 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 });
 
+let users = []
+
 io.on('connection', (socket) => {
     console.log('user connected');
-    socket.broadcast.emit("newUser", "A new user joined")
+
+    socket.on('setUserName', (userName) => {
+        users.push(userName)
+        socket.emit("newUser", `A new user joined. Online users: ${users.toString()}`)
+    })
 
     socket.on('disconnect', () => {
         console.log('user disconnected');

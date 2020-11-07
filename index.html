@@ -26,13 +26,18 @@
             $('#messages').append($('<li>').text(message));
         }
 
-        var name = prompt("Please enter your name");
+        const socket = io();
+        let userName = "";
 
-        var socket = io();
+        socket.on('connect', () => {
+            userName = prompt("Please enter your name");
+            socket.emit('setUserName', userName)
+        });
+
         $('form').submit(function(e){
             e.preventDefault(); // prevents page reloading
 
-            const message = `${name}: ${$('#m').val()}`
+            const message = `${userName}: ${$('#m').val()}`
             appendMessage(message)
             socket.emit('chat message', message);
             
