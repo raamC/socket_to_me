@@ -22,14 +22,17 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
     $(function () {
+        var name = prompt("Please enter your name");
+
         var socket = io();
         $('form').submit(function(e){
             e.preventDefault(); // prevents page reloading
-            socket.emit('chat message', $('#m').val());
+            const message = $('#m').val()
+            socket.emit('chat message', `${name}: ${message}`);
             $('#m').val('');
             return false;
         });
-        
+
         socket.on('newUser', function(msg){
             $('#messages').append($('<li>').text(msg));
         });
