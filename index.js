@@ -8,21 +8,23 @@ app.get('/', (req, res) => {
 
 let users = []
 
-io.on('connection', (socket) => {
+io.on('connect', (socket) => {
     console.log('user connected');
 
-    socket.on('setUserName', (userName) => {
-        users.push(userName)
-        socket.emit("newUser", `A new user joined. Online users: ${users.toString()}`)
+    socket.on('setusername', (username) => {
+        socket.username = username
+        users.push(username)
+        socket.emit("newUser", `${username} joined. Online users: ${users.toString()}`)
     })
 
     socket.on('disconnect', () => {
-        console.log('user disconnected');
-        io.emit('disconnect', 'A user left');
+        users = users.filter(u => u != socket.username)
+        socket.broadcast.emit('userLeft', `${socket.username} left. Online users: ${users.toString()}`);
     });
-    socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
-        socket.broadcast.emit('chat message', msg);
+
+    socket.on('chat message', (message) => {
+        console.log('message: ' + message);
+        socket.broadcast.emit('chat message', message);
     });
 });
 

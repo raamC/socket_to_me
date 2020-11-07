@@ -27,17 +27,17 @@
         }
 
         const socket = io();
-        let userName = "";
+        let username = "";
 
         socket.on('connect', () => {
-            userName = prompt("Please enter your name");
-            socket.emit('setUserName', userName)
+            username = prompt("Please enter your name");
+            socket.emit('setusername', username)
         });
 
         $('form').submit(function(e){
             e.preventDefault(); // prevents page reloading
 
-            const message = `${userName}: ${$('#m').val()}`
+            const message = `${username}: ${$('#m').val()}`
             appendMessage(message)
             socket.emit('chat message', message);
             
@@ -47,7 +47,7 @@
 
         socket.on('newUser', message => appendMessage(message));
 
-        socket.on('disconnect', message => appendMessage(message));
+        socket.on('userLeft', message => appendMessage(message));
 
         socket.on('chat message', message => appendMessage(message));
     });
