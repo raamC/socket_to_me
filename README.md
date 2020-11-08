@@ -1,5 +1,5 @@
-# Socket To Me
+# Socket To Me 🔌
 
-Basic web chat powered by socket.io and Node.js
+A simple chat app powered by socket.io and Node.js. Check it out at https://socket-to-me-chat.herokuapp.com/
 
-This is to learn and understand how sockets work so I can build other more exciting things.
+![Demo of the app on Heroku](./demo.gif)
