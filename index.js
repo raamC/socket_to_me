@@ -12,10 +12,10 @@ let users = []
 io.on('connect', (socket) => {
     console.log('user connected');
 
-    socket.on('setusername', (username) => {
+    socket.on('setUsername', (username) => {
         socket.username = username
         users.push(username)
-        socket.emit("newUser", `${username} joined. Online users: ${users.toString()}`)
+        io.emit("newUser", `${username} joined. Online users: ${users.toString()}`)
     })
 
     socket.on('disconnect', () => {

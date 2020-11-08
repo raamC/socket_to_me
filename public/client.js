@@ -17,7 +17,7 @@ $(function () {
     socket.on('connect', () => {
         username = prompt("Please enter your name");
         $('#username').text(`Logged in as: ${username}`)
-        socket.emit('setusername', username)
+        socket.emit('setUsername', username)
     });
 
     $('#messageForm').submit(function (e) {
