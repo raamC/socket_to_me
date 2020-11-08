@@ -1,8 +1,124 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font: 13px Helvetica, Arial; }
-form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-form input { border: 0; padding: 10px; width: 90%; margin-right: 0.5%; }
-form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 13px;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #d3d0cb;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: 50px auto;
+    background: white;
+    height: 80vh;
+    border-radius: 10px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #393e41;
+    border-radius: 10px 0 0 10px;
+}
+
+.sidebarItem {
+    margin: 0;
+    padding: 50px 20px;
+}
+
+#logo {
+    border-radius: 10px 0 0 0;
+    font-weight: 700;
+    background-color: #e2c044;
+    color: #393e41;
+}
+
+#logo h1 {
+    font-size: 26px;
+}
+
+#logo h2 {
+    font-size: 15px;
+}
+
+#username {
+    background-color: #393e41;
+    color: white;
+    font-size: 15px;
+}
+
+.messageContainer {
+    margin-top: 20px;
+    border-radius: 0 10px 10px 0;
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+#messages li {
+    padding: 10px 10px;
+}
+
+#messages .notification {
+    background: #eee;
+}
+
+#messages .incoming {
+    background: #909090;
+    margin: 2px;
+    border-radius: 10px 10px 10px 0;
+    width: 60%;
+    clear: both;
+}
+
+#messages .outgoing {
+    background: #B0B0B0;
+    margin: 2px;
+    border-radius: 10px 10px 0 10px;
+    width: 60%;
+    float: right;
+    clear: both;
+}
+
+form {
+    background: #e2c044;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 0 10px 0;
+}
+
+form input {
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    flex-basis: 85%;
+}
+
+form button {
+    background: #393e41;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    flex-grow: 1;
+    margin-left: 10px;
+    color: white;
+}
+
+
+
+
